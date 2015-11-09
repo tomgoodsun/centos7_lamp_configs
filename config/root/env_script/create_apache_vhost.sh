@@ -14,11 +14,6 @@ USER=${2-webmaster}
 GROUP=${3-webmaster}
 SERVER_ADMIN=${4-yourname@example.com}
 
-
-
-echo $SERVER_ADMIN
-exit;
-
 # Directory paths
 VHOSTS_DIR="/etc/httpd/vhosts"
 VHOST_CONFIG=$VHOSTS_DIR"/"$VHOST_NAME".conf"
