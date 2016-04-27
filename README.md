@@ -180,7 +180,25 @@ remi repoはデフォルトでは無効なので、有効なリポジトリに�
 ### LAMP環境作成に必要なパッケージのインストール
 
 ```bash
-[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase php-intl php-ldap php-libdmtx php-libvirt php-libvirt-doc php-magickwand php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc php-pdo php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pecl-ncurses php-pgsql php-php-gettext php-process php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
+[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
+php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
+php-intl php-ldap php-libdmtx php-libvirt php-libvirt-doc php-magickwand php-magpierss php-mbstring php-mcrypt \
+php-mysqlnd php-oauth php-odbc php-pdo php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached \
+php-pecl-ncurses php-pgsql php-php-gettext php-process php-pspell php-recode php-shout php-simplepie \
+php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
+```
+
+2016.04.07時点でのインストールパッケージ
+
+php-pecl-memcacheがremi repoからインストール出来るようになっている。
+
+```bash
+[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
+php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
+php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc php-pdo \
+php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pgsql php-php-gettext php-process \
+php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream \
+mysql-server mysql-client memcached samba mailx
 ```
 
 ##### 2015.12.07
