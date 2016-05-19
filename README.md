@@ -39,7 +39,7 @@ Machine -> Newで仮想マシンの作成を開始し、以下を設定してCre
 
 | 項目名 | 設定例 |
 | ------ | ------ |
-| Storage | Controller: IDE<br>Emptyをクリックし、右のAttributesのOprical DriveのCDマークをクリックし、Choose Virtual Oprical Disk Fileを選択し、ダウンロードしたCentOSのディスクイメージを選択する。 |
+| Storage | Controller: IDE<br>Emptyをクリックし、右のAttributesのOptical DriveのCDマークをクリックし、Choose Virtual Oprical Disk Fileを選択し、ダウンロードしたCentOSのディスクイメージを選択する。 |
 | Network | Adapter 1<br>Attached to: Bridged Adapterを選択する。<br>Host-only adapterでもよい。その場合は192.168のIPになる。 |
 
 仮想マシンをダブルクリックして起動。
@@ -188,7 +188,16 @@ php-pecl-ncurses php-pgsql php-php-gettext php-process php-pspell php-recode php
 php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
 ```
 
-2016.04.07時点でのインストールパッケージ
+##### 2015.12.07
+PHP 7.0がリリースされたので、インストールオプションを変更。（remi repository）
+ただし、いくつか未対応のエクステンションがあるので、今後変更されていく可能性がある。
+特にMemcacheのエクステンションが入っていない。
+
+```bash
+[root@centos7 ~]# yum install httpd php php-bcmath php-cli php-common php-dba php-devel php-apc php-embedded php-enchant php-fpm php-gd php-geshi php-imap php-interbase php-intl php-ldap php-libdmtx php-mbstring php-mcrypt php-mysqlnd php-odbc php-pdo php-pear php-pecl-imagick php-pgsql php-php-gettext php-process php-pspell php-recode php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server memcached samba mailx
+```
+
+##### 2016.04.07時点でのインストールパッケージ
 
 php-pecl-memcacheがremi repoからインストール出来るようになっている。
 
@@ -199,15 +208,6 @@ php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd 
 php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pgsql php-php-gettext php-process \
 php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream \
 mysql-server mysql-client memcached samba mailx
-```
-
-##### 2015.12.07
-PHP 7.0がリリースされたので、インストールオプションを変更。（remi repository）
-ただし、いくつか未対応のエクステンションがあるので、今後変更されていく可能性がある。
-特にMemcacheのエクステンションが入っていない。
-
-```bash
-[root@centos7 ~]# yum install httpd php php-bcmath php-cli php-common php-dba php-devel php-apc php-embedded php-enchant php-fpm php-gd php-geshi php-imap php-interbase php-intl php-ldap php-libdmtx php-mbstring php-mcrypt php-mysqlnd php-odbc php-pdo php-pear php-pecl-imagick php-pgsql php-php-gettext php-process php-pspell php-recode php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server memcached samba mailx
 ```
 
 ### 基本フォルダの設置
