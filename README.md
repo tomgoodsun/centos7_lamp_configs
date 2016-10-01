@@ -370,7 +370,8 @@ MySQLの設定は以下を参考にする。（パスワードに対する制限
 またはrootでの操作はデフォルトのパスワードを変更した後でないと出来ないようになっているので、まずrootでログインした後はパスワードを変更することから始めなければならない。
 
 ```bash
-[root@centos7 ~]# /etc/init.d/mysql start
+[root@centos7 ~]# sytemctl enable mysqld
+[root@centos7 ~]# sytemctl start mysqld
 [root@centos7 ~]# mysql -u root -p
 Enter password:
 Welcome to the MySQL monitor.  Commands end with ; or \g.
