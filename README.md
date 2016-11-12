@@ -406,17 +406,43 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> CREATE DATABASE mydb CHARACTER SET utf8;
-Query OK, 1 row affected (0.01 sec)
+mysql> SHOW VARIABLES LIKE 'validate_password%'; # 環境設定の確認（パスワード系の設定をゆるくしておく）
++--------------------------------------+-------+
+| Variable_name                        | Value |
++--------------------------------------+-------+
+| validate_password_check_user_name    | OFF   |
+| validate_password_dictionary_file    |       |
+| validate_password_length             | 4     |
+| validate_password_mixed_case_count   | 0     |
+| validate_password_number_count       | 0     |
+| validate_password_policy             | LOW   |
+| validate_password_special_char_count | 0     |
++--------------------------------------+-------+
+7 rows in set (0.00 sec)
 
-mysql> GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%' IDENTIFIED BY 'password';
-Query OK, 0 rows affected, 1 warning (0.03 sec)
+mysql> CREATE DATABASE mydb CHARACTER SET utf8;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE USER mydb_user@'%' IDENTIFIED BY 'password';
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%';
+Query OK, 0 rows affected (0.00 sec)
 
 mysql> FLUSH PRIVILEGES;
 Query OK, 0 rows affected (0.00 sec)
 
+mysql> SHOW WARNINGS;
+Empty set (0.00 sec)
+
 mysql>
 ```
+ポイントはMySQL 5.6までは`GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%' IDENTIFIED BY 'password';`という構文が使えていたが
+MySQL 5.7では使用できなくなっていること。
+
+その代わり`CREATE USER`文が使えるで、それを使って設定する。あまりないかもしれないが`CREATE USER`文を使用してパスワードのハッシュアルゴリズムを指定出来るようになっているのだが、変に設定してしまうとPHPとかから接続できなくなってしまうので注意が必要。
+
+またエラーが発生しているかどうかは`SHOW WARNINGS;`で見ることが出来る。
 
 ## 自動起動設定
 
