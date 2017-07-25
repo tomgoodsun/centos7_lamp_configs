@@ -210,6 +210,19 @@ php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml
 mysql-server mysql-client memcached samba mailx
 ```
 
+##### 2017.07.26時点でのインストールパッケージ
+
+php-opcacheを追加。
+
+```bash
+[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
+php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
+php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc php-opcache php-pdo \
+php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pgsql php-php-gettext php-process \
+php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream \
+mysql-server mysql-client memcached samba mailx
+```
+
 ### 基本フォルダの設置
 
 ```bash
