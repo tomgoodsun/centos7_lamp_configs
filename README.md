@@ -93,7 +93,7 @@ SSHはデフォルトで設定されているので、移行はSSHクライア�
 ### 最低限必要なパッケージのインストールと設定
 
 ```bash
-[root@centos7 ~]# yum install ntp vim wget
+[root@centos7 ~]# yum install ntp vim wget zip unzip
 [root@centos7 ~]# vi /etc/bashrc
 以下を最後の行の1つ前に追加
 alias ll='ls -la'
@@ -182,45 +182,10 @@ remi repoはデフォルトでは無効なので、有効なリポジトリに�
 ```bash
 [root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
 php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
-php-intl php-ldap php-libdmtx php-libvirt php-libvirt-doc php-magickwand php-magpierss php-mbstring php-mcrypt \
-php-mysqlnd php-oauth php-odbc php-pdo php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached \
-php-pecl-ncurses php-pgsql php-php-gettext php-process php-pspell php-recode php-shout php-simplepie \
-php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
-```
-
-##### 2015.12.07
-PHP 7.0がリリースされたので、インストールオプションを変更。（remi repository）
-ただし、いくつか未対応のエクステンションがあるので、今後変更されていく可能性がある。
-特にMemcacheのエクステンションが入っていない。
-
-```bash
-[root@centos7 ~]# yum install httpd php php-bcmath php-cli php-common php-dba php-devel php-apc php-embedded php-enchant php-fpm php-gd php-geshi php-imap php-interbase php-intl php-ldap php-libdmtx php-mbstring php-mcrypt php-mysqlnd php-odbc php-pdo php-pear php-pecl-imagick php-pgsql php-php-gettext php-process php-pspell php-recode php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream mysql-server memcached samba mailx
-```
-
-##### 2016.04.07時点でのインストールパッケージ
-
-php-pecl-memcacheがremi repoからインストール出来るようになっている。
-
-```bash
-[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
-php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
-php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc php-pdo \
-php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pgsql php-php-gettext php-process \
-php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream \
-mysql-server mysql-client memcached samba mailx
-```
-
-##### 2017.07.26時点でのインストールパッケージ
-
-php-opcacheを追加。
-
-```bash
-[root@centos7 ~]# yum install httpd php php-bcmath php-captchaphp php-cli php-common php-dba php-devel \
-php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi php-imap php-interbase \
-php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc php-opcache php-pdo \
-php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pgsql php-php-gettext php-process \
-php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy php-xml php-xmlrpc php-zipstream \
-mysql-server mysql-client memcached samba mailx
+php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc \
+php-opcache php-pdo php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pecl-zip php-pgsql \
+php-php-gettext php-process php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy \
+php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
 ```
 
 ### 基本フォルダの設置
