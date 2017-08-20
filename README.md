@@ -185,7 +185,7 @@ php-apc php-embedded php-enchant php-fpdf php-fpdf-doc php-fpm php-gd php-geshi 
 php-intl php-ldap php-libdmtx php-magpierss php-mbstring php-mcrypt php-mysqlnd php-oauth php-odbc \
 php-opcache php-pdo php-pear php-pecl-imagick php-pecl-memcache php-pecl-memcached php-pecl-zip php-pgsql \
 php-php-gettext php-process php-pspell php-recode php-shout php-simplepie php-snmp php-soap php-tidy \
-php-xml php-xmlrpc php-zipstream mysql-server mysql-client memcached samba mailx
+php-xml php-xmlrpc php-yaml php-zipstream mysql-server mysql-client memcached samba mailx
 ```
 
 ### 基本フォルダの設置
