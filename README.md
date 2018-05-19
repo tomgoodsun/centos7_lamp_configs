@@ -188,6 +188,18 @@ php-php-gettext php-process php-pspell php-recode php-shout php-simplepie php-sn
 php-xml php-xmlrpc php-yaml php-zipstream mysql-server mysql-client memcached samba mailx
 ```
 
+#### Apacheをインストールする場合
+
+```bash
+[root@centos7 ~]# yum install httpd
+```
+
+#### nginxをインストールする場合
+
+```bash
+[root@centos7 ~]# yum install nginx php-fpm
+```
+
 ### 基本フォルダの設置
 
 ```bash
@@ -279,7 +291,10 @@ Windowsからアドレスバーに以下を入力して共有ディレクトリ�
 PHPの設定は以下を参考にする。
 - https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/php.ini
 
-## Apache（ウェブサーバーのセットアップ）
+## ウェブサーバーのセットアップ
+
+### Apacheの場合
+
 設定を書き換える前にオリジナルをバックアップ。
 
 ```bash
@@ -326,6 +341,33 @@ Apacheの設定は以下を参考にする。
 [root@centos7 ~]# apachectl configtest
 [root@centos7 ~]# systemctl start httpd
 ```
+
+### nginxの場合
+
+設定を書き換える前にオリジナルをバックアップ。
+
+```bash
+[root@centos7 ~]# cp /etc/nginx/nginx.conf /etc/nginx/nginx.conf.orig
+[root@centos7 ~]# cp /etc/php-fpm.conf /etc/php-fpm.conf.orig
+[root@centos7 ~]# cp /etc/php-fpm.d/www.conf /etc/php-fpm.d/www.conf.orig
+```
+
+nginxの設定は以下を参考にする。
+
+- https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/nginx/nginx.conf
+
+php-fpmの設定は以下を参考にする。
+
+- https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/php-fpm.conf
+- https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/php-fpm.d/www.conf
+
+```bash
+[root@centos7 ~]# systemctl enable nginx
+[root@centos7 ~]# systemctl start nginx
+[root@centos7 ~]# systemctl enable php-fpm
+[root@centos7 ~]# systemctl start php-fpm
+```
+
 
 ## MySQL Serverのセットアップ
 
