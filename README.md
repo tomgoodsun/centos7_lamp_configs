@@ -379,11 +379,12 @@ php-fpmの設定は以下を参考にする。
 [root@centos7 ~]# cp /etc/my.cnf /etc/my.cnf.orig
 ```
 
-MySQL 5.7ではrootのデフォルトパスワードが勝手に生成されてしまう。
+MySQL 5.7以降ではrootのデフォルトパスワードが勝手に生成されてしまう。
 `/root/.mysql_secret`に記載されているとのこと。ない場合は`/var/log/mysql.log`に記載が残っているので確認してみる。
 また5.6からパスワードポリシーが厳しくなっている。開発環境用はあまり厳しすぎると使いにくいので、かなりゆるく設定する。
 
 MySQLの設定は以下を参考にする。（パスワードに対する制限をかなりゆるくしている）
+MySQL 8.0からパスワード関連の変数名が変わっていいるので注意。
 
 - https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/my.cnf
 
@@ -409,7 +410,9 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> SET PASSWORD FOR root@localhost=PASSWORD('password');
 Query OK, 0 rows affected, 1 warning (0.00 sec)
 
-mysql>
+MySQL 8.0ではSET PASSWORD FORは使えない。代わりにALTER USERを使う。
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+
 
 データベースとユーザーの作り方に関しては従来の方法で行える。
 [root@centos7 ~]# mysql -u root -p
@@ -463,6 +466,7 @@ MySQL 5.7では使用できなくなっていること。
 その代わり`CREATE USER`文が使えるで、それを使って設定する。あまりないかもしれないが`CREATE USER`文を使用してパスワードのハッシュアルゴリズムを指定出来るようになっているのだが、変に設定してしまうとPHPとかから接続できなくなってしまうので注意が必要。
 
 またエラーが発生しているかどうかは`SHOW WARNINGS;`で見ることが出来る。
+
 
 ## 自動起動設定
 
