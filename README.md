@@ -245,6 +245,10 @@ NTPの設定は以下を参考にする。
 
 - https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/ntp.conf
 
+```bash
+[root@centos7 ~]# wget https://raw.githubusercontent.com/tomgoodsun/centos7_lamp_configs/master/config/etc/ntp.conf -O /etc/ntp.conf 
+```
+
 ntp.confを書き換えたらntpdを起動または再起動。
 
 ```bash
@@ -263,6 +267,10 @@ ntp.confを書き換えたらntpdを起動または再起動。
 Sambaの設定は以下を参考にする。
 
 - https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/samba/smb.conf
+
+```bash
+[root@centos7 ~]# wget https://raw.githubusercontent.com/tomgoodsun/centos7_lamp_configs/master/config/etc/samba/smb.conf -O /etc/samba/smb.conf 
+```
 
 設定を書き換えたらsmbを起動または再起動。
 
