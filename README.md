@@ -454,7 +454,7 @@ mysql> SHOW VARIABLES LIKE 'validate_password%'; # 環境設定の確認（パ�
 mysql> CREATE DATABASE mydb CHARACTER SET utf8;
 Query OK, 1 row affected (0.00 sec)
 
-mysql> CREATE USER mydb_user@'%' IDENTIFIED BY 'password';
+mysql> CREATE USER mydb_user@'%' IDENTIFIED WITH mysql_native_password BY 'password';
 Query OK, 0 rows affected (0.01 sec)
 
 mysql> GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%';
@@ -468,7 +468,7 @@ Empty set (0.00 sec)
 
 mysql>
 ```
-ポイントはMySQL 5.6までは`GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%' IDENTIFIED BY 'password';`という構文が使えていたが
+ポイントはMySQL 5.6までは`GRANT ALL PRIVILEGES ON mydb.* TO mydb_user@'%' IDENTIFIED WITH mysql_native_password BY 'password';`という構文が使えていたが
 MySQL 5.7では使用できなくなっていること。
 
 その代わり`CREATE USER`文が使えるで、それを使って設定する。あまりないかもしれないが`CREATE USER`文を使用してパスワードのハッシュアルゴリズムを指定出来るようになっているのだが、変に設定してしまうとPHPとかから接続できなくなってしまうので注意が必要。
