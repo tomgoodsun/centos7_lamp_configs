@@ -146,6 +146,9 @@ set imsearch=0
   - インストール方法：https://fedoraproject.org/wiki/EPEL/FAQ#howtouse
   - CentOS 7の場合、EL7の手順に従う。
   - Fedoraプロジェクトのリポジトリ。
+- OIS (https://ius.io/)
+  - インストール方法：`yum -y install "https://centos7.iuscommunity.org/ius-release.rpm"`
+  - Apacheの更新が頻繁に行われている。
 - remi repo（http://rpms.famillecollet.com/）
   - インストール方法：http://blog.remirepo.net/pages/Config-en
   - CentOS 7の場合、Enterprise Linux 7の手順に従う。
@@ -192,6 +195,12 @@ php-xml php-xmlrpc php-yaml php-zipstream mysql-server mysql-client memcached sa
 
 ```bash
 [root@centos7 ~]# yum install httpd
+
+# Apacheの最新版のインストール
+[root@centos7 ~]# yum remove httpd httpd-devel httpd-tools mod_ssl
+[root@centos7 ~]# yum --enablerepo=epel install nghttp2
+[root@centos7 ~]# yum install mailcap
+[root@centos7 ~]# yum --disablerepo=base,extras,updates --enablerepo=ius install httpd httpd-devel mod_ssl
 ```
 
 #### nginxをインストールする場合
