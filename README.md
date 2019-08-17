@@ -92,8 +92,19 @@ SSHはデフォルトで設定されているので、移行はSSHクライア�
 
 ### 最低限必要なパッケージのインストールと設定
 
+NTPをインストールする場合
+
 ```bash
 [root@centos7 ~]# yum install ntp vim wget zip unzip
+```
+
+NTPのかわりにChronyをインストールする場合
+
+```bash
+[root@centos7 ~]# yum install chrony vim wget zip unzip
+```
+
+```bash
 [root@centos7 ~]# vi /etc/bashrc
 以下を最後の行の1つ前に追加
 alias ll='ls -la'
@@ -239,7 +250,9 @@ CentOS 7ではiptablesに変わり、アクセス制限にfirewalldを使用し�
 ここで一旦rebootして設定を反映する。
 
 
-## NTP（時刻）の設定
+## 時刻の設定
+
+### NTP
 
 設定を書き換える前にオリジナルをバックアップ。
 
@@ -264,6 +277,33 @@ ntp.confを書き換えたらntpdを起動または再起動。
 [root@centos7 ~]# systemctl enable ntpd
 [root@centos7 ~]# systemctl start ntpd
 ```
+
+### Chrony
+
+```bash
+[root@centos7 ~]# mv /etc/chrony.conf /etc/chrony.conf.orig
+```
+
+Chronyの同期サーバーにはNTPサーバーを指定する。
+
+- INTERNET MULTIFEED CO. (http://www.jst.mfeed.ad.jp/)
+  - セットアップ方法：http://www.jst.mfeed.ad.jp/about/04.html
+
+NTPの設定は以下を参考にする。
+
+- https://github.com/tomgoodsun/centos7_lamp_configs/blob/master/config/etc/chrony.conf
+
+```bash
+[root@centos7 ~]# wget https://raw.githubusercontent.com/tomgoodsun/centos7_lamp_configs/master/config/etc/chrony.conf -O /etc/chrony.conf 
+```
+
+chrony.confを書き換えたらchronydを起動または再起動。
+
+```bash
+[root@centos7 ~]# systemctl enable chronyd
+[root@centos7 ~]# systemctl start chronyd
+```
+
 
 ## Samba（Windowsファイル共有）の設定
 
