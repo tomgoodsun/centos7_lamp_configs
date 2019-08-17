@@ -12,7 +12,7 @@ For more information, please see https://docs.google.com/document/d/12VbZYST8h0r
 - [03.Samba（Windowsファイル共有）の設定](03.amba（Windowsファイル共有）の設定.md)
 - [04.PHPのセットアップ](04.PHPのセットアップ.md)
 - [05.ウェブサーバーのセットアップ](05.ウェブサーバーのセットアップ.md)
-- [06.MySQL Serverのセットアップ](06.MySQL Serverのセットアップ.md)
+- [06.MySQL Serverのセットアップ](06.MySQL_Serverのセットアップ.md)
 
 ## 自動起動設定
 
